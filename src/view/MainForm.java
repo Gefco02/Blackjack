@@ -1,5 +1,23 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import static jdk.javadoc.internal.doclets.toolkit.util.DocPath.parent;
+
 public class MainForm extends javax.swing.JFrame {
 
     public MainForm() {
@@ -123,6 +141,11 @@ public class MainForm extends javax.swing.JFrame {
         jRadioButton2.setText("lapok összértéke");
 
         jButton3.setText("Mentés");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Kilépés");
 
@@ -161,6 +184,11 @@ public class MainForm extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         jMenuItem1.setText("Mentés");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Kilépés");
@@ -218,6 +246,37 @@ public class MainForm extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+public void mentes(){
+        FileFilter ft = new FileNameExtensionFilter("txt", "jpg", "gif");
+        JFrame frame = new JFrame("JFileChooser Popup");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        final JLabel directoryLabel = new JLabel(" ");
+        directoryLabel.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 36));
+        frame.add(directoryLabel, BorderLayout.NORTH);
+
+        final JLabel filenameLabel = new JLabel(" ");
+        filenameLabel.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 36));
+        frame.add(filenameLabel, BorderLayout.SOUTH);
+
+        JFileChooser fileChooser = new JFileChooser(".");
+        fileChooser.setControlButtonsAreShown(true);
+        frame.add(fileChooser, BorderLayout.CENTER);
+
+        frame.pack();
+        frame.setVisible(true);
+        
+        
+        
+}
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        mentes();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       mentes();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
